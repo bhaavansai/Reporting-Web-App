@@ -18,8 +18,8 @@ const ShowAveragesUserwise = ({ entries,days }) => {
     const thirtyDaysAgo = moment().subtract(days, "days").startOf("day");
     const yesterday = moment().subtract(1, "day").endOf("day");
 
-    console.log(yesterday)
-    console.log(thirtyDaysAgo)
+    // console.log(yesterday)
+    // console.log(thirtyDaysAgo)
 
     const last30DaysEntries = entries.filter((entry) => {
       const entryDate = moment(entry.dateOfSadhana);

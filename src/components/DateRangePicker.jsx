@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import moment from "moment";
@@ -24,6 +24,15 @@ const DateRangePicker = ({ handleFromDateChange, handleToDateChange }) => {
     }
   };
 
+  // useEffect(() => {
+  //   if (startDate && endDate && startDate > endDate) {
+  //     setStartDate(endDate);
+  //     handleFromDateChange(endDate);
+  //     setEndDate(startDate);
+  //     handleToDateChange(startDate);
+  //   }
+  // }, [startDate, endDate]);
+
   const setFromAndToDates = (daysBeforeTodayFrom, daysBeforeTodayTo) => {
     dateChangeFrom(moment().subtract(daysBeforeTodayFrom, "days").toDate());
     dateChangeTo(moment().subtract(daysBeforeTodayTo, "days").toDate());
@@ -35,16 +44,16 @@ const DateRangePicker = ({ handleFromDateChange, handleToDateChange }) => {
 
     switch (dateRange) {
       case "Last 7 Days":
-        setFromAndToDates(7, 0);
+        setFromAndToDates(7, 1);
         break;
       case "Last 14 Days":
-        setFromAndToDates(14, 0);
+        setFromAndToDates(14, 1);
         break;
       case "Last 30 Days":
-        setFromAndToDates(30, 0);
+        setFromAndToDates(30, 1);
         break;
       case "Last 60 Days":
-        setFromAndToDates(60, 0);
+        setFromAndToDates(60, 1);
         break;
       case "Custom":
         setStartDate(null);

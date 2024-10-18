@@ -8,7 +8,7 @@ import { convertToDMMMM } from "../services/calculateDatesArray";
 
 const ShowReportUserwise = () => {
   const { id } = useParams();
-  console.log(id);
+  //console.log(id);
 
   const [entries, setEntries] = useState([]);
   const [user,setUser]=useState();
@@ -19,7 +19,7 @@ const ShowReportUserwise = () => {
       // .get(`sadhana-entry/all-entries/user/1`)
       .then((response) => {
         console.log(response);
-        console.log("hi");
+        // console.log("hi");
         setEntries(response.data.sadhanaEntries.reverse())
         setUser(response.data.user);
      
@@ -30,14 +30,14 @@ const ShowReportUserwise = () => {
     fetchEntries();
   }, [id]);
 
-  console.log(entries);
+  console.log("hare krishna",entries);
 
   return (
     <div>
       {/* <h1>Sadhana Entries for {user.name}</h1> */}
 
       <ShowAveragesUserwise entries={entries} days={30} />
-<ShowAveragesUserwise entries={entries} days={7}/>
+      <ShowAveragesUserwise entries={entries} days={7}/>
 
 <br />
 <br />

@@ -32,7 +32,7 @@ const EventWiseReport = () => {
       })
       .catch((error) => console.log("error"));
   };
-
+  
   const calculateSortedSummary = () => {
     const newSummary = {};
     Object.entries(entries).forEach(([name, values]) => {
@@ -43,7 +43,7 @@ const EventWiseReport = () => {
       }
       newSummary[name] = val;
     });
-
+    //console.log(newSummary);
     const sortedSummaryArray = Object.entries(newSummary).sort((a, b) => {
       const getMinutes = (value) => {
         if (typeof value === "string") {
@@ -64,10 +64,10 @@ const EventWiseReport = () => {
   useEffect(() => {
     fetchEntries();
   }, [counselorid, eventName, date1, date2]);
-
   useEffect(() => {
     calculateSortedSummary();
   }, [entries]);
+  
 
   const renderTable = () => {
     const dates = calcualateDatesArrayDecreasing(date1, date2);
@@ -86,13 +86,12 @@ const EventWiseReport = () => {
         ))}
       </tr>
     );
-
     const tableRows = Object.entries(summary).map(([name, summaryValue]) => {
       let noOfDaysFilledForPercentage = calculateDaysFilledForPercentage(
         entries[name]
       );
 
-      console.log(eventName);
+      //console.log(eventName);
 
       return (
         <tr key={name} className="hover:bg-gray-100 border-gray-200">

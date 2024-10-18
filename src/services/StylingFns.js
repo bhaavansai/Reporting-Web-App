@@ -32,7 +32,7 @@ export function getColorClass(value, eventName) {
      
 
       const time = moment(value, "HH:mm");
-      console.log(value,time)
+      //console.log(value,time)
       if (time.isSameOrBefore(criteria.chantingCompletionTime.maximumForGreen))
         return colors.green;
       else if (

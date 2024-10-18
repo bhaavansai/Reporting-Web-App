@@ -76,10 +76,11 @@ export function calculateTotalPresents(userEventValues) {
 
 export function calculatePresentPercentage(userEventValues) {
   const totalDays = getObjectLength(userEventValues);
-
+  //console.log(totalDays);
   const presentCount = calculateTotalPresents(userEventValues);
-
+  //console.log(presentCount);
   const percentage = Math.round((presentCount / totalDays) * 100).toString();
+  //console.log(percentage);
   return percentage;
 }
 

@@ -103,7 +103,7 @@ const DateWiseReport = () => {
                 <td
                   className={`${getColorClass(
                     entry.mangalAartiAttendance,
-                    "mangal--arti-attendance"
+                    "mangal-aarti-attendance"
                   )}`}
                 >
                   {entry.mangalAartiAttendance || "NF"}

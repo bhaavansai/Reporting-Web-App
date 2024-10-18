@@ -12,7 +12,7 @@ const MasterSummary = () => {
   const [randomEventValue, setRandomEventValue] = useState({});
 
   const [date1, setDate1] = useState(
-    moment().subtract(4, "days").format("YYYY-MM-DD")
+    moment().subtract(7, "days").format("YYYY-MM-DD")
   );
   const [date2, setDate2] = useState(
     moment().subtract(1, "days").format("YYYY-MM-DD")
@@ -47,7 +47,7 @@ const MasterSummary = () => {
       })
       .catch((error) => console.error("Error fetching entries:", error));
   }, [counselorid, date1, date2]);
-
+  //console.log(randomEventValue);
   function generateEventSummary(data) {
     const summary = {};
 
@@ -71,7 +71,7 @@ const MasterSummary = () => {
     let unsortedData =
       calculateDaysFilledForPercentageForAllUsers(randomEventValue);
 
-    console.log(summary["days-filled-for-percentage"]);
+    //console.log(summary["days-filled-for-percentage"]);
 
     summary["days-filled-for-percentage"] = Object.fromEntries(
       Object.entries(unsortedData).sort(
@@ -83,7 +83,7 @@ const MasterSummary = () => {
 
     return summary;
   }
-
+  
   const eventSummaries = generateEventSummary(entries);
 
   console.log(eventSummaries);
